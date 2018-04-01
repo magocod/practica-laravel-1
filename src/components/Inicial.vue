@@ -52,7 +52,7 @@
         <v-card-title class="headline">Repositorio UNEFA VUE.JS</v-card-title>
         </center>
         <center>
-            <a class="black--text" href="">Codigo Fuente</a> 
+            <a class="black--text" href="https://github.com/magocod/Vue_repositorio">Codigo Fuente</a> 
         </center>
 
         <v-card-actions>

@@ -5,14 +5,6 @@
 * SPA: Aplicación de página unica
 * PWA: Pagina web progresiva
 
-``` bash
-# Proximamente 
-
-Herramientes: + Vuex
-HTTP-cliente: + Axios
-
-```
-
 ## FRAMEWORK
 
 * VueJS 2.5.2 -> https://vuejs.org/
@@ -22,9 +14,22 @@ HTTP-cliente: + Axios
 
 * Vue-router 3.0.1 -> https://router.vuejs.org/en/
 
+``` bash
+# Proxima version
+
+Vuex -> https://vuex.vuejs.org/en/
+
+```
 ## HTTP-cliente
 
 * Vue-resource 1.5.0 -> https://github.com/pagekit/vue-resource
+
+``` bash
+# Proxima version
+
+Axios -> https://github.com/axios/axios
+
+```
 
 ## Build Setup
 

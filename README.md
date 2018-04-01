@@ -2,15 +2,18 @@
 
 > Pagina progresiva, FRONT-END del repositorio UNEFA
 
-## FRONT-END
+## FRAMEWORK
 
 * VueJS 2.5.2 -> https://vuejs.org/
-* Vue-router 3.0.1 -> https://router.vuejs.org/en/
 * Vuetifyjs 1.0.11 -> https://vuetifyjs.com/en/
+
+## Herramientas - Vue
+
+* Vue-router 3.0.1 -> https://router.vuejs.org/en/
 
 ## HTTP-cliente
 
-*Vue-resource 1.5.0 -> https://github.com/pagekit/vue-resource
+* Vue-resource 1.5.0 -> https://github.com/pagekit/vue-resource
 
 ## Build Setup
 

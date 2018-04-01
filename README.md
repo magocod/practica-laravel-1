@@ -1,6 +1,17 @@
 # Vue Repositorio
 
-> Pagina progresiva, FRONT-END del repositorio UNEFA
+> FRONT-END del repositorio UNEFA, siguiendo los siguientes patrones
+
+* SPA: Aplicación de página unica
+* PWA: Pagina web progresiva
+
+``` bash
+# Proximamente 
+
+Herramientes: + Vuex
+HTTP-cliente: + Axios
+
+```
 
 ## FRAMEWORK
 

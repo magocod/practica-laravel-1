@@ -1,20 +1,30 @@
-# vuetify1
+# Vue Repositorio
 
-> A Vue.js project
+> Pagina progresiva, FRONT-END del repositorio UNEFA
+
+## FRONT-END
+
+* VueJS 2.5.2 -> https://vuejs.org/
+* Vue-router 3.0.1 -> https://router.vuejs.org/en/
+* Vuetifyjs 1.0.11 -> https://vuetifyjs.com/en/
+
+## HTTP-cliente
+
+*Vue-resource 1.5.0 -> https://github.com/pagekit/vue-resource
 
 ## Build Setup
 
 ``` bash
-# install dependencies
+# instalar dependencias
 npm install
 
-# serve with hot reload at localhost:8080
+# iniciar servidor de desarrollo
 npm run dev
 
-# build for production with minification
+# Preparar para produccion
 npm run build
 
-# build for production and view the bundle analyzer report
+# Preparar para produccion + analisis report
 npm run build --report
 ```
 

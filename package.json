@@ -1,15 +1,16 @@
 {
-  "name": "rvue1.0",
+  "name": "Vue_repositorio",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "JSON mago <30846890+magocod@users.noreply.github.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "node server.js",
     "build": "node build/build.js"
   },
   "dependencies": {
+    "express": "^4.16.3",
     "npm": "^5.8.0",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.0",

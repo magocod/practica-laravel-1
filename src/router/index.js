@@ -8,8 +8,8 @@ import Unefa from '@/components/information/Unefa'
 //search
 import Title from '@/components/search/Title'
 import Category from '@/components/search/Category'
+import Theme from '@/components/search/Theme'
 import Author from '@/components/search/Author'
-import Date_f from '@/components/search/Date_f'
 import Recent from '@/components/search/Recent'
 //API
 import Data from '@/components/api/Data'
@@ -45,17 +45,17 @@ export default new Router({
       component: Category
     },
     {
+      path: '/busqueda/tematica',
+      name: 'search_theme',
+      component: Theme
+    },
+    {
       path: '/busqueda/autor',
       name: 'search_author',
       component: Author
     },
     {
-      path: '/busqueda/fechas',
-      name: 'search_date',
-      component: Date_f
-    },
-    {
-      path: '/busqueda/publiaciones',
+      path: '/busqueda/publicaciones',
       name: 'search_recent',
       component: Recent
     },

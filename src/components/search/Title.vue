@@ -76,6 +76,33 @@
            
 </v-card>
 
+<br>
+
+<v-card class="blue-grey">
+
+  <div>
+
+  <br>
+
+  <h2>Contador</h2>
+
+  <div class="text-xs-center">
+      <v-btn v-on:click="incrementar" fab dark color="primary">
+        contador
+      </v-btn>
+      <v-btn fab dark color="primary">
+        {{ count }}
+      </v-btn>
+  </div>
+  <br>
+
+  </div>
+           
+</v-card>
+
+<br>
+<br>
+
 
 
 </v-flex>
@@ -85,6 +112,12 @@
 </template>
 
 <script>
+
+import { mapState } from 'vuex';
+
+//mapear mutaciones
+//import { mapMutations } from 'vuex';
+
   export default {
     data () {
       return {
@@ -184,9 +217,28 @@
 
         ]
 
-
       }
 
+
+    },
+
+    methods: {
+        //incrementar contador
+        incrementar(){
+              this.$store.commit('test/INCREMENT_COUNT');
+         }
+         
+    },
+
+    // valor inicial del componente
+    computed: {
+         myLocalComputed() {
+             // estado del componente
+         }, 
+         //mapeo del almacen
+         ...mapState('test',['count'])
     }
+
+    
   }
 </script>

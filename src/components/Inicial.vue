@@ -11,7 +11,7 @@
 
   <!--carrusel-->
   <v-carousel>
-    <v-carousel-item v-for="(item,i) in items" :src="item.src" :key="i"></v-carousel-item>
+    <v-carousel-item v-for="(item,i) in items" v-bind:src="item.src" :key="i" v-bind:alt="item.title"></v-carousel-item>
   </v-carousel>
 
  
@@ -78,16 +78,20 @@
         //carrusel
         items: [
           {
-            src: 'static/carrusel/vuejs-c.png'
+            src: 'static/carrusel/vuejs-c-min.jpg', 
+            title: 'carrusel_1' 
           },
           {
-            src: 'static/carrusel/vuetify-c.png'
+            src: 'static/carrusel/vuetify-c-min.jpg', 
+            title: 'carrusel_2' 
           },
           {
-            src: 'static/carrusel/nodejs-c.jpg'
+            src: 'static/carrusel/nodejs-c-min.jpg', 
+            title: 'carrusel_3' 
           },
           {
-            src: 'static/carrusel/js-c.jpg'
+            src: 'static/carrusel/js-c-min.jpg', 
+            title: 'carrusel_4' 
           }
         ],
 
@@ -96,16 +100,16 @@
 
         tiles: [
 
-        { img: 'static/icon/vue.png', 
+        { img: 'static/icon/vue-min.jpg', 
           title: 'Vue.JS' 
         },
-        { img: 'static/icon/vuetify.jpg', 
+        { img: 'static/icon/vuetify-min.jpg', 
           title: 'Vuetify.JS' 
         },
-        { img: 'static/icon/vuebootstrap.png', 
+        { img: 'static/icon/vuebootstrap-min.jpg', 
           title: 'Vue + Bootstrap -> Proximamente' 
         },
-        { img: 'static/icon/node.png', 
+        { img: 'static/icon/node-min.jpg', 
           title: 'Node.JS' 
         }
   

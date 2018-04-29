@@ -45,7 +45,7 @@
 
 <br>
 
-<div v-for="category of categories" :key="category.nombre" @click="">
+<div v-for="item in themes" :key="item.nombre" @click="">
   
 <v-card>
 
@@ -55,7 +55,7 @@
               <v-icon large color="white">folder</v-icon>
             </v-list-tile-avatar>
             <v-list-tile-content>
-              <v-list-tile-title class="white--text">{{ category.nombre }}</v-list-tile-title>
+              <v-list-tile-title class="white--text">{{ item.nombre }}</v-list-tile-title>
             
             </v-list-tile-content>
             <v-list-tile-action>
@@ -72,7 +72,7 @@
       <div slot="header">Descripcion</div>
       <v-card class="blue-grey lighten-3">
         <v-card-text>
-          {{ category.descripcion }}
+          {{ item.descripcion }}
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
@@ -105,12 +105,9 @@
 import { mapState } from 'vuex';
 
 export default {
-
-
     data () {
-
       return {
-        //paginacion
+        // paginacion
         page: 1,
 
         breadcumb: [
@@ -123,28 +120,24 @@ export default {
             disabled: false
           }
 
-        ],
+        ]
         
-        
+
+
     
       }
     },
 
     // valor inicial del componente
-
     computed: {
          myLocalComputed() {
              // estado del componente
-         }, 
-         //mapear e ingresar datos del store
-         //...mapState(['categories'])
-
-         //usar funcion del store
-         categories() {
-            return this.$store.getters['category/categories_search'];
-         }
+         },
+         //mapeo del almacen 
+         ...mapState('theme', ['themes'])
     }
-}
 
+
+}
 
 </script>

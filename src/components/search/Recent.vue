@@ -157,14 +157,14 @@
           date: 'xx/xx/xxxx',
           theme:'tema',
           type:'tipo', 
-          src: 'https://i.pinimg.com/originals/9d/fb/da/9dfbdaa5df3a6a9bc61fe84d058918bb.png', 
+          src: 'https://cdn-images-1.medium.com/max/1920/1*nfvapd86apvGH-hNBYkYuw.png', 
           flex: 6 
         },
         { title: 'NodeJS',
           date: 'xx/xx/xxxx',
           theme:'tema',
           type:'tipo',  
-          src: 'http://incurs.us/sites/default/files/2016-08/nodejs-wallpaper-1_0.png', 
+          src: 'https://cdn-images-1.medium.com/max/1920/1*o5lVFLMq1WrXbr7myV5XeQ.png', 
           flex: 6 
         },
         { title: 'Vuetifys',
@@ -178,23 +178,23 @@
           date: 'xx/xx/xxxx',
           theme:'tema', 
           type:'tipo', 
-          src: 'http://iwearshorts.com/wp-content/uploads/2015/05/javascript-site-1070x580.jpg', 
+          src: 'https://img00.deviantart.net/0641/i/2017/127/b/7/javascript_wallpaper_by_mrhudson-db8gw2e.png', 
           flex: 6 
         }
 
         ],
 
         collections: [
-        { title: 'Framework PHP',
+        { title: 'Servidor Web',
           date: 'xx/xx/xxxx',
           theme:'tema',
-          src: 'https://c.wallhere.com/photos/ca/a8/Laravel_simple_code_programming_PHP_dark-78631.png!d', 
+          src: 'https://sdtimes.com/wp-content/uploads/2017/09/NGINX.png', 
           flex: 12 
         },
-        { title: 'Sistema Operativo',
+        { title: 'Servidor Web',
           date: 'xx/xx/xxxx',
           theme:'tema', 
-          src: 'https://en.opensuse.org/images/a/a5/Opensuse1.jpg', 
+          src: 'https://sdtimes.com/wp-content/uploads/2017/09/NGINX.png', 
           flex: 12 
         },
         { title: 'Servidor Web',

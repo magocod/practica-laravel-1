@@ -16,7 +16,7 @@
     </v-toolbar>
 
     <!--sidebar izquierda-->
-    <v-navigation-drawer temporary v-model="left" clipped left app>
+    <v-navigation-drawer temporary clipped left app>
       
     </v-navigation-drawer>
 
@@ -26,7 +26,7 @@
     <br>
     
     <v-layout column align-center>
-        <img src="@/assets/unefa_escudo.jpg" alt="escudo_unefa" class="mb-5">
+        <img width="200" height="200" v-bind:src="imagen" alt="escudo_unefa" class="mb-5">
     </v-layout>
     
 
@@ -138,6 +138,7 @@ export default {
       //sidebar estado
       drawer: true,
       drawerRight: false,
+      imagen:'static/icon/gif/unefalogo-min.gif',
 
       //items sidebar derecha
       items_r: [
@@ -148,13 +149,13 @@ export default {
         icon: 'home',
       }, 
       {
-        href: 'examples',
+        href: 'inicial',
         router: true,
         title: 'Busqueda Avanzada',
         icon: 'search',
       }, 
       {
-        href: 'about',
+        href: 'inicial',
         router: true,
         title: 'otro',
         icon: 'domain',
@@ -169,7 +170,7 @@ export default {
           icon: 'home',
       },
       {
-          href: '#',
+          href: 'inicial',
           router: true,
           title: 'Acerca de',
           icon: 'home',
@@ -181,13 +182,13 @@ export default {
           icon: 'home',
       },
       {
-          href: '#',
+          href: 'inicial',
           router: true,
           title: 'UNEFA-VIRTUAL',
           icon: 'home',
       },
       {
-          href: '#',
+          href: 'inicial',
           router: true,
           title: 'Contactenos',
           icon: 'home',
@@ -208,7 +209,7 @@ export default {
                 icon:'dns' 
               },
               { 
-                href: '#',
+                href: 'inicial',
                 router: true,
                 title: 'Proximamente',
                 icon:'grade' 
@@ -232,9 +233,9 @@ export default {
                 icon:'description' 
               },
               { 
-                href: '#',
+                href: 'search_theme',
                 router: true,
-                title: 'Tema',
+                title: 'Tematica',
                 icon:'content_paste'
               },
               { 
@@ -244,19 +245,13 @@ export default {
                 icon:'account_box'
               },
               { 
-                href: 'search_date',
-                router: true,
-                title: 'Fecha de publicacion',
-                icon:'access_time'
-              },
-              { 
                 href: 'search_recent',
                 router: true,
                 title: 'Recientes',
                 icon:'next_week'
               },
               { 
-                href: '#',
+                href: 'inicial',
                 router: true,
                 title: 'Proximamente',
                 icon:'extension'

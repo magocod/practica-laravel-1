@@ -7,17 +7,39 @@ import App from './App'
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
+//import axios from 'axios';
+//Vue.use(axios); 
+
 //enlaces dentro de la aplicacion
 import router from './router'
-//framework
+
+//framework vuetifiys
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-
 Vue.use(Vuetify)
+
+//vuex
+import store from './vuex';
+
+
 
 Vue.config.productionTip = false
 
+
+//inyectar instancias a todos los componentes
+new Vue({
+    el: '#app',
+    router,
+    store,
+    render: h => h(App)
+});
+
+
+
+
+//forma basica
 /* eslint-disable no-new */
+/*
 new Vue({
   //elemento afectado
   el: '#app',
@@ -27,3 +49,4 @@ new Vue({
   //plantilla html inicial
   template: '<App/>'
 })
+*/

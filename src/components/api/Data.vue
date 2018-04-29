@@ -77,9 +77,6 @@
   
   <v-card>
 
-  <v-card-media src="https://www.metatrader4.com/c/2/0/metatrader_4_api_ru_en.jpg" height="200px">
-  </v-card-media>
-
         <v-list two-line subheader>
           <v-list-tile avatar v-for="item in items" :key="item.title" @click="">
             <v-list-tile-avatar>

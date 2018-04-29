@@ -35,7 +35,7 @@
 
 <v-card>
 
-  <v-card-media src="http://800noticias.com/cms/wp-content/uploads/2015/06/unefa.jpg" height="200px">
+  <v-card-media v-bind:src="imagen" height="200px">
   </v-card-media>
 
     <v-card-title class="indigo darken-4 " primary-title>
@@ -88,6 +88,7 @@
   export default {
     data: () => ({
       show: false,
+      imagen: "static/information/unefa.jpg",
       breadcumb: [
           {
             text: 'Información',

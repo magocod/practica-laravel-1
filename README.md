@@ -8,30 +8,30 @@
 ## FRAMEWORK
 
 * VueJS 2.5.2 -> https://vuejs.org/
-* Vuetifyjs 1.0.11 -> https://vuetifyjs.com/en/
+* Vuetifyjs 1.0.17 -> https://vuetifyjs.com/en/
 * ExpressJS  4.16.3 -> http://expressjs.com/
 
 ## Herramientas - Vue
 
 * Vue-router 3.0.1 -> https://router.vuejs.org/en/
+* Vuex -> 3.0.1 https://vuex.vuejs.org/en/
 
-``` bash
-# Proxima version
 
-Vuex -> https://vuex.vuejs.org/en/
-
-```
 ## HTTP-cliente
 
-* Vue-resource 1.5.0 -> https://github.com/pagekit/vue-resource
-
 ``` bash
 # Proxima version
-
-Axios -> https://github.com/axios/axios
-
+Vue-resource 1.5.0 -> https://github.com/pagekit/vue-resource
+Axios 0.18.0 -> https://github.com/axios/axios
 ```
 
+## Estructura
+
+* rama master -> configuracion aplicación de página única
+``` bash
+# Proxima version
+rama pwa -> configuracion pagina web progresiva
+```
 ## Instrucciones
 
 ``` bash
@@ -46,9 +46,6 @@ npm run build
 
 # Preparar para produccion + analisis report
 npm run build --report
-
-#Procfile
-configuracion Heroku -> https://www.heroku.com/
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

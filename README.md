@@ -1,9 +1,9 @@
-# Vue Repositorio
+# Vue Repository
 
-> FRONT-END del repositorio UNEFA, siguiendo los siguientes patrones
+> based on the following patterns
 
-* SPA: Aplicación de página unica
-* PWA: Pagina web progresiva
+* SPA: Single page application
+* PWA: Progressive webpage
 
 ## FRAMEWORK
 
@@ -11,41 +11,35 @@
 * Vuetifyjs 1.0.17 -> https://vuetifyjs.com/en/
 * ExpressJS  4.16.3 -> http://expressjs.com/
 
-## Herramientas - Vue
+## Core Libraries - Vue
 
 * Vue-router 3.0.1 -> https://router.vuejs.org/en/
 * Vuex -> 3.0.1 https://vuex.vuejs.org/en/
 
 
-## HTTP-cliente
+## HTTP-client
 
 ``` bash
-# Proxima version
-Vue-resource 1.5.0 -> https://github.com/pagekit/vue-resource
+# next version
 Axios 0.18.0 -> https://github.com/axios/axios
 ```
 
-## Estructura
+## Structure
 
-* rama master -> configuracion aplicación de página única
+* master branch -> single page application settings
 ``` bash
-# Proxima version
-rama pwa -> configuracion pagina web progresiva
+# next version
+pwa branch -> progressive web configuration
 ```
-## Instrucciones
+## Instructions
 
 ``` bash
-# instalar dependencias
+# install dependencies
 npm install
 
-# iniciar servidor 
+# start server
 node server.js
 
-# Preparar para produccion
-npm run build
-
-# Preparar para produccion + analisis report
-npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

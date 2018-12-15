@@ -1,1 +1,0 @@
-//comunicacion con el exterior

@@ -1,0 +1,218 @@
+{
+  "authors": [
+    {
+      "id": 1,
+      "name": "yeison mago"    
+    },
+    {
+      "id": 2,
+      "name": "wendy mago"    
+    },
+    {
+      "id": 3,
+      "name": "antonio diseñador"    
+    },
+    {
+      "id": 4,
+      "name": "ivan mago"    
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "linux",
+      "description": "description"
+    },
+    {
+      "id": 2,
+      "title": "servers",
+      "description": "description"    
+    },
+    {
+      "id": 3,
+      "title": "android",
+      "description": "description"    
+    },
+    {
+      "id": 4,
+      "title": "framework",
+      "description": "description"    
+    },
+    {
+      "id": 5,
+      "title": "super cell",
+      "description": "description"
+    },
+    {
+      "id": 6,
+      "title": "python",
+      "description": "description"    
+    },
+    {
+      "id": 7,
+      "title": "javascript",
+      "description": "description"    
+    },
+    {
+      "id": 8,
+      "title": "engineering",
+      "description": "description"    
+    },
+    {
+      "id": 9,
+      "title": "bachelor's degree",
+      "description": "description"    
+    },
+    {
+      "id": 10,
+      "title": "education",
+      "description": "description"    
+    }
+  ],
+  "collections": [
+    {
+      "id": 1,
+      "title": "django",
+      "description": "description",
+      "theme": 2,
+      "categories": [4,6]
+    },
+    {
+      "id": 2,
+      "title": "vue",
+      "description": "description",
+      "theme": 2,
+      "categories": [4,7]
+    },
+    {
+      "id": 3,
+      "title": "clash royale",
+      "description": "description",
+      "theme": 1,
+      "categories": [3,5]   
+    },
+    {
+      "id": 4,
+      "title": "mathematics I",
+      "description": "description",
+      "theme": 7,
+      "categories": [8,9]
+    },
+    {
+      "id": 5,
+      "title": "Web server",
+      "description": "description",
+      "theme": 3,
+      "categories": [1,2]
+    },
+    {
+      "id": 6,
+      "title": "OS",
+      "description": "description",
+      "theme": 3,
+      "categories": [1] 
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "title": "repository unefa",
+      "description": "description",
+      "theme": 2,
+      "collections": [1]
+    },
+    {
+      "id": 2,
+      "title": "vue r-unefa",
+      "description": "description",
+      "theme": 2,
+      "collections": [2]
+    },
+    {
+      "id": 3,
+      "title": "archer",
+      "description": "description",
+      "theme": 1,
+      "collections": [3]
+    },
+    {
+      "id": 4,
+      "title": "integral",
+      "description": "description",
+      "theme": 7,
+      "collections": [4]  
+    },
+    {
+      "id": 5,
+      "title": "gunicorn",
+      "description": "description",
+      "theme": 3,
+      "collections": [5]
+    },
+    {
+      "id": 6,
+      "title": "nginx",
+      "description": "description",
+      "theme": 3,
+      "collections": [5]  
+    },
+    {
+      "id": 7,
+      "title": "ubuntu",
+      "description": "description",
+      "theme": 3,
+      "collections": [6]
+    },
+    {
+      "id": 8,
+      "title": "debian",
+      "description": "description",
+      "theme": 3,
+      "collections": [6]  
+    },
+    {
+      "id": 9,
+      "title": "android 8 - oreo",
+      "description": "description",
+      "theme": 3,
+      "collections": [6]
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "title": "video game",
+      "description": "description"
+    },
+    {
+      "id": 2,
+      "title": "Web development",
+      "description": "description"    
+    },
+    {
+      "id": 3,
+      "title": "software",
+      "description": "description"    
+    },
+    {
+      "id": 4,
+      "title": "hardware",
+      "description": "description"    
+    },
+    {
+      "id": 5,
+      "title": "chemistry",
+      "description": "description"
+    },
+    {
+      "id": 6,
+      "title": "English",
+      "description": "description"    
+    },
+    {
+      "id": 7,
+      "title": "mathematics",
+      "description": "description"    
+    }
+  ]
+}

@@ -1,24 +1,20 @@
-// importar base instancia axios
-import {JSONtestserver} from '@/api/testserver';
+/**
+ *
+ */
 
-import axios from 'axios';
-import { dbclient, firebaseexport } from '@/api/firebase';
+import { JSONtestserver, dbclient, firebaseexport } from '@/api';
+import { Resource } from '../interfaces';
 
-import { Resource } from '@/vuex/interfaces/firestore';
-
-// importar constantes mutaciones
 import {
   ADD_ARRAY,
 } from '../mutation-types';
 
-// estado del almacen
 const state = {
 
   resources: [] as Resource[],
 
 };
 
-// peticion del elementos del almacen
 const getters = {
 
   // recursos cantidad (array)
@@ -28,7 +24,6 @@ const getters = {
 
 };
 
-// modificar el estado del almacen
 const mutations = {
 
   [ADD_ARRAY]: (state: any, payload: Resource[]) => {
@@ -37,7 +32,6 @@ const mutations = {
 
 };
 
-// comunicar store con exterior
 const actions = {
 
   BY_COLLECTION({ state, commit }: any, collection: string) {
@@ -68,7 +62,7 @@ const actions = {
     // promesa
     return new Promise((resolve, reject) => {
       // usando intancia api
-      axios.get(`http://localhost:3000/items?title_like=${title}`).then((response) => {
+      JSONtestserver.get(`http://localhost:3000/items?title_like=${title}`).then((response) => {
         resolve('exito en la consulta');
         // ejecutar mutaciones
         // console.log(response.data);
@@ -81,13 +75,10 @@ const actions = {
 
 };
 
-// exportar propiedades
-export default {
-
+export const resource = {
   namespaced: true,
   state,
   getters,
   mutations,
   actions,
-
 };

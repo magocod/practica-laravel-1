@@ -1,4 +1,7 @@
-// estado del almacen
+/**
+ *
+ */
+
 const state = {
 
   // items sidebar derecha
@@ -132,10 +135,7 @@ const state = {
 
 };
 
-// exportar propiedades
-export default {
-
+export const manager = {
   namespaced: true,
   state,
-
 };

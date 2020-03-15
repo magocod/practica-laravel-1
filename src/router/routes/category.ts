@@ -1,10 +1,14 @@
 // no requieren autenticacion
 
+import {
+    LazyCategoryList,
+} from '@/components';
+
 // exportar arreglo
 export default [
   {
     path: '/category',
     name: 'category_list',
-    component: () => import(/* webpackChunkName: "category" */ '@/components/category/List.vue'),
+    component: LazyCategoryList,
   },
 ];

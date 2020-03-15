@@ -83,11 +83,9 @@ const actions = {
 
 // exportar propiedades
 export default {
-
   namespaced: true,
   state,
   getters,
   mutations,
   actions,
-
 };

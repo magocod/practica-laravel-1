@@ -1,4 +1,7 @@
-// libreria para fechas
+/**
+ *
+ */
+
 import moment from 'moment';
 
 // funciones fechas
@@ -8,10 +11,9 @@ const months = [
 ];
 
 /**
- * @param {object} value = date object
- * funcion determinar mes a partir de texto
+ * [monthdate description]
+ * @param {any} value [description]
  */
-
 export function monthdate(value: any) {
   if (value) {
     // return new Date(value).toLocaleDateString("en-US")
@@ -20,10 +22,9 @@ export function monthdate(value: any) {
 }
 
 /**
- * @param {number} numero
- * funcion determinar mes a partir de numero
+ * [monthnumber description]
+ * @param {number} n [description]
  */
-
 export function monthnumber(n: number) {
   if (n !== null) {
     return months[n];
@@ -31,10 +32,9 @@ export function monthnumber(n: number) {
 }
 
 /**
- * @param {object} value = date object
- * funcion determinar fecha a partir de cadena de texto
+ * [stringdate description]
+ * @param {any} value [description]
  */
-
 export function stringdate(value: any) {
   if (value) {
     return moment(value).format('MMMM Do YYYY, h:mm:ss a');
@@ -42,10 +42,9 @@ export function stringdate(value: any) {
 }
 
 /**
- * @param {object} value = date object
- * funcion determinar fecha relativa a partir de la actual
+ * [relativetime description]
+ * @param {any} value [description]
  */
-
 export function relativetime(value: any) {
   if (value) {
     return moment(value, 'YYYYMMDD').fromNow();
@@ -53,10 +52,9 @@ export function relativetime(value: any) {
 }
 
 /**
- * @param {number} value = date object
- * funcion determinar dia del mes
+ * [numberdate description]
+ * @param {any} value [description]
  */
-
 export function numberdate(value: any) {
   if (value) {
     return value.getDate();

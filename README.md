@@ -1,9 +1,7 @@
-# Vue Repository
+Vue Repository
+==============
 
-> based on the following patterns
-
-* SPA: Single page application
-* PWA: Progressive webpage
+Digital repository, UNEFA internship project
 
 ## FRAMEWORK
 

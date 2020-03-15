@@ -12,6 +12,8 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+export * from './interfaces';
+
 export default new Vuex.Store({
   modules: {
     manager,

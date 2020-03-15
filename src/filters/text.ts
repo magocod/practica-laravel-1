@@ -1,7 +1,11 @@
 /**
- * @param {string} texto a convertir en mayusculas
+ *
  */
 
+/**
+ * [textuppercase description]
+ * @param {string} value [description]
+ */
 export function textuppercase(value: string) {
   if (value) {
     return value.toUpperCase();

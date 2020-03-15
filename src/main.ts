@@ -1,16 +1,23 @@
 import Vue from 'vue';
+
 // componente principal
 import App from './App.vue';
+
 // estado de la aplicacion
-import store from '@/vuex/index';
+import store from '@/vuex';
+
 // enlaces dentro de la aplicacion
-import router from '@/router/index';
+import router from '@/router';
+
 // filtros
-import filters from '@/filters/index';
+import filters from '@/filters';
+
 // trabajadores de servicio
 import './registerServiceWorker';
+
 // estilos
 import '@/plugins/vuetify';
+
 // material icons
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 // notificaciones

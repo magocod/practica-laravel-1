@@ -1,7 +1,6 @@
-// no requieren autenticacion
+import { RouteConfig } from 'vue-router';
 
-// exportar arreglo
-export default [
+export const titleRoutes: RouteConfig[] = [
   {
     path: '/title',
     name: 'title_search',

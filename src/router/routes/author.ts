@@ -1,12 +1,11 @@
-// no requieren autenticacion
+import { RouteConfig } from 'vue-router';
 
 import {
     LazyAuthorList,
 } from '@/components';
 // console.log(LazyAuthorList);
 
-// exportar arreglo
-export default [
+export const authorRoutes: RouteConfig[] = [
   {
     path: '/authors',
     name: 'author_list',

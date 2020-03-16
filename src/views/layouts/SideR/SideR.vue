@@ -18,3 +18,5 @@
 </section>
   
 </template>
+<script src="./SideR.ts" lang="ts"></script>
+<style src="./SideR.css"></style>

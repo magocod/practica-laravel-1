@@ -40,3 +40,5 @@
 	</v-list>
 
 </template>
+<script src="./SideL.ts" lang="ts"></script>
+<style src="./SideL.css"></style>

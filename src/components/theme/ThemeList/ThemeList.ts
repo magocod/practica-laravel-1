@@ -1,41 +1,18 @@
-<template>
-
-<v-layout row>
-<v-flex xs12 sm8 offset-sm2>
-  <br>
-    <v-card>
-      <v-breadcrumbs :items="breadcumb">
-        <v-icon slot="divider">forward</v-icon>
-      </v-breadcrumbs>
-      <v-btn absolute fab bottom right color="red darken-4" v-on:click="load">
-        <v-icon class="white--text">flash_on</v-icon>
-      </v-btn>
-    </v-card>
-  <br><br>
-	<listelements v-bind:list="themes" v-bind:iconname="'content_paste'" @listelements:change="eventlist"></listelements>
-</v-flex>
-</v-layout>
-
-</template>
-
-<script lang="ts">
-
-// TS
 import Vue from 'vue';
 
 // mapear estado del store
 import { mapState } from 'vuex';
 import { Collection } from '@/vuex/interfaces/firestore';
 
-import listelements from '@/components/layouts/listelements.vue';
+import { GenericList } from '../../partials';
 
 export default Vue.extend({
 
+  name: 'ThemeList',
+
   // reutilizar componentes
   components: {
-
-    listelements,
-
+    'generic-list': GenericList,
   },
 
   // almacenar las propiedades
@@ -102,5 +79,3 @@ export default Vue.extend({
   },
 
 });
-
-</script>

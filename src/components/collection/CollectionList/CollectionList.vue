@@ -11,7 +11,11 @@
 		      </v-btn>
 		    </v-card>
 		  <br><br>
-		  <listelements v-bind:list="collections" v-bind:iconname="'work'" @listelements:change="eventlist"></listelements>
+		  <generic-list
+		  	v-bind:list="collections"
+		  	v-bind:iconname="'work'"
+		  	@listelements:change="eventlist"
+		  ></generic-list>
 		</v-flex>
 	</v-layout>
 </template>

@@ -4,7 +4,7 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 
 import { Item } from '@/vuex';
-import listelements from '@/components/layouts/listelements.vue';
+import { GenericList } from '../../partials';
 
 export default Vue.extend({
 
@@ -12,9 +12,7 @@ export default Vue.extend({
 
   // reutilizar componentes
   components: {
-
-    listelements,
-
+    'generic-list': GenericList,
   },
 
   // almacenar las propiedades

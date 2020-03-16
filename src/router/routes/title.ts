@@ -1,9 +1,13 @@
 import { RouteConfig } from 'vue-router';
 
+import {
+  LazyTitleSearch,
+} from '@/components';
+
 export const titleRoutes: RouteConfig[] = [
   {
     path: '/title',
     name: 'title_search',
-    component: () => import(/* webpackChunkName: "title" */ '@/components/title/Search.vue'),
+    component: LazyTitleSearch,
   },
 ];

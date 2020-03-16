@@ -12,12 +12,12 @@
 		    </v-card>
 		  <br><br>
 			<generic-list
-				v-bind:list="categories"
-				v-bind:iconname="'description'"
+				v-bind:list="themes"
+				v-bind:iconname="'content_paste'"
 				@listelements:change="eventlist">
 			</generic-list>
 		</v-flex>
 	</v-layout>
 </template>
-<script src="./CategoryList.ts" lang="ts"></script>
-<style src="./CategoryList.css"></style>
+<script src="./ThemeList.ts" lang="ts"></script>
+<style src="./ThemeList.css"></style>

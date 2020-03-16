@@ -1,14 +1,19 @@
 import { RouteConfig } from 'vue-router';
 
+import {
+    LazyCollectionList,
+    LazyCollectionDetail,
+} from '@/components';
+
 export const collectionRoutes: RouteConfig[] = [
   {
     path: '/collections/:key',
     name: 'collection_list',
-    component: () => import(/* webpackChunkName: "collection" */ '@/components/collection/List.vue'),
+    component: LazyCollectionList,
   },
   {
     path: '/collection/:id',
     name: 'collection_detail',
-    component: () => import(/* webpackChunkName: "collection" */ '@/components/collection/Detail.vue'),
+    component: LazyCollectionDetail,
   },
 ];

@@ -87,7 +87,7 @@ const state = {
       title: 'Api',
       items: [
         {
-          href: 'api_info',
+          href: 'home',
           router: true,
           title: 'Repository',
           icon: 'account_balance_wallet',

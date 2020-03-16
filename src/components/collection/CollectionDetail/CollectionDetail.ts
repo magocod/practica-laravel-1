@@ -1,15 +1,8 @@
-<template>
-
-<h1>Component</h1>
-
-</template>
-
-<script lang="ts">
-
-// TS
 import Vue from 'vue';
 
 export default Vue.extend({
+
+  name: 'CollectionDetail',
 
   // almacenar las propiedades
   data() {
@@ -19,5 +12,3 @@ export default Vue.extend({
   },
 
 });
-
-</script>

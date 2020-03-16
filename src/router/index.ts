@@ -16,9 +16,10 @@ import {
 } from './routes';
 
 // eager loading
-import { Home } from '@/views';
-
-// import Error404 from '@/components/error/Error404.vue';
+import {
+  Home,
+  LazyError404,
+} from '@/views';
 
 Vue.use(Router);
 
@@ -28,11 +29,9 @@ const routes: RouteConfig[] = [
     name: 'home',
     component: Home,
   },
-  // error 404
   {
     path: '*',
-    component: () => import(/* webpackChunkName: "e404" */ '@/components/error/Error404.vue'),
-    // component: Error404,
+    component: LazyError404,
   },
   // lazy loading
   ...authorRoutes,

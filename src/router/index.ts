@@ -12,7 +12,8 @@ import author from '@/router/routes/author';
 import recent from '@/router/routes/recent';
 
 // eager loading
-import Home from '@/views/Home.vue';
+import { Home } from '@/views';
+
 // import Error404 from '@/components/error/Error404.vue';
 
 Vue.use(Router);
@@ -42,6 +43,7 @@ const routes = baseroutes.concat(
   author,
   recent,
 );
+
 const router = new Router({
   mode: 'history',
   // directorio

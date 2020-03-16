@@ -21,26 +21,5 @@
 
 </v-footer>
 </template>
-
-<script lang="ts">
-
-// TS
-import Vue from 'vue';
-
-export default Vue.extend({
-
-  // variables recibida desde fuera
-  props: [
-    'list',
-  ],
-
-  // almacenar las propiedades
-  data() {
-    return {
-
-    };
-  },
-
-});
-
-</script>
+<script src="./FooterApp.ts" lang="ts"></script>
+<style src="./FooterApp.css"></style>

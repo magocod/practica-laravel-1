@@ -21,13 +21,13 @@
       <v-layout column align-center>
         <v-img width="200" height="200" src="https://firebasestorage.googleapis.com/v0/b/vue-spa-1.appspot.com/o/icons%2Funefalogo-min.gif?alt=media&token=fbb35f23-c2d3-42dc-a3c4-e57cc4c2336d" alt="escudo_unefa"></v-img>
       </v-layout>
-      <sideL v-bind:list="itemsleft"></sideL>
+      <sidebar-left v-bind:list="itemsleft"></sidebar-left>
     </v-navigation-drawer>
 
     <!--sidebar derecha-->
     <v-navigation-drawer fixed v-model="drawerRight" right clipped app>
       <!-- componente -->
-      <sideR v-bind:list="itemsright"></sideR>
+      <sidebar-rigth v-bind:list="itemsright"></sidebar-rigth>
     </v-navigation-drawer>
 
     <!--enrutador de componentes-->
@@ -35,7 +35,7 @@
       <router-view/>
     </v-content>
 
-    <footerapp v-bind:list="itemsfooter"></footerapp>
+    <footer-app v-bind:list="itemsfooter"></footer-app>
   </v-app>
 
 </template>
@@ -48,10 +48,11 @@ import Vue from 'vue';
 // mapear estado del store
 import { mapState } from 'vuex';
 
-import Home from '@/views/Home.vue'; // @ is an alias to /src
-import footerapp from '@/views/layouts/footerapp.vue';
-import sideL from '@/views/layouts/sideL.vue';
-import sideR from '@/views/layouts/sideR.vue';
+import {
+  FooterApp,
+  SideL,
+  SideR,
+} from '@/views';
 
 export default Vue.extend({
 
@@ -59,12 +60,9 @@ export default Vue.extend({
 
   // reutilizar componentes
   components: {
-
-    Home,
-    sideL,
-    sideR,
-    footerapp,
-
+    'footer-app': FooterApp,
+    'sidebar-left': SideL,
+    'sidebar-rigth': SideR,
   },
 
   // almacenar las propiedades

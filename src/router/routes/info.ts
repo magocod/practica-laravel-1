@@ -2,7 +2,7 @@ import { RouteConfig } from 'vue-router';
 
 import {
     LazyUnefa,
-} from '@/components';
+} from '../../components';
 
 export const infoRoutes: RouteConfig[] = [
   {

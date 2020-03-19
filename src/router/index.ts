@@ -19,7 +19,7 @@ import {
 import {
   Home,
   LazyError404,
-} from '@/views';
+} from '../views';
 
 Vue.use(Router);
 

@@ -2,7 +2,7 @@ import { RouteConfig } from 'vue-router';
 
 import {
     LazyAuthorList,
-} from '@/components';
+} from '../../components';
 // console.log(LazyAuthorList);
 
 export const authorRoutes: RouteConfig[] = [

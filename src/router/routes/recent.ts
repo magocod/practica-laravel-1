@@ -2,7 +2,7 @@ import { RouteConfig } from 'vue-router';
 
 import {
     LazyRecentList,
-} from '@/components';
+} from '../../components';
 
 export const recentRoutes: RouteConfig[] = [
   {

@@ -3,7 +3,7 @@ import { RouteConfig } from 'vue-router';
 import {
     LazyCollectionList,
     LazyCollectionDetail,
-} from '@/components';
+} from '../../components';
 
 export const collectionRoutes: RouteConfig[] = [
   {

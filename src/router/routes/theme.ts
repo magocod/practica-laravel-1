@@ -2,7 +2,7 @@ import { RouteConfig } from 'vue-router';
 
 import {
   LazyThemeList,
-} from '@/components';
+} from '../../components';
 
 export const themeRoutes: RouteConfig[] = [
   {

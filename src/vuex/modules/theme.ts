@@ -2,7 +2,7 @@
  *
  */
 
-import { JSONtestserver, dbclient, firebaseexport } from '@/api';
+import { JSONtestserver, dbclient, firebaseexport } from '../../services';
 
 import { Item } from '../interfaces';
 

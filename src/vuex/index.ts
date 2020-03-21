@@ -10,6 +10,7 @@ import {
   author,
   category,
   collection,
+  counter,
   resource,
   theme,
 } from './modules';
@@ -24,10 +25,11 @@ export * from './interfaces';
 export default new Vuex.Store({
   modules: {
     manager,
-    category,
     author,
-    theme,
+    category,
     collection,
+    counter,
     resource,
+    theme,
   },
 });

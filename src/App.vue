@@ -52,7 +52,7 @@ import {
   FooterApp,
   SideL,
   SideR,
-} from '@/views';
+} from './views';
 
 export default Vue.extend({
 
@@ -68,10 +68,8 @@ export default Vue.extend({
   // almacenar las propiedades
   data() {
     return {
-
       drawerLeft: true,
       drawerRight: false,
-
     };
   },
 

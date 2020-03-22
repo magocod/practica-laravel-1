@@ -2,7 +2,13 @@
  *
  */
 
-const state = {
+import { ActionContext, Module } from 'vuex';
+
+export interface CounterStore {
+  count: number;
+}
+
+const state: CounterStore = {
   count: 0,
 };
 
@@ -10,10 +16,8 @@ const getters = {
 
   /**
    * [GET_COUNT description]
-   * @param  {[type]} state [description]
-   * @return {number}       [description]
    */
-  GET_COUNT(state: any): number {
+  GET_COUNT(state: CounterStore): number {
     return state.count;
   },
 
@@ -21,11 +25,11 @@ const getters = {
 
 const mutations = {
 
-  INCREMENT(state: any) {
+  INCREMENT(state: CounterStore) {
     state.count++;
   },
 
-  DECREMENT(state: any) {
+  DECREMENT(state: CounterStore) {
     state.count--;
   },
 
@@ -33,7 +37,7 @@ const mutations = {
 
 const actions = {
 
-  async INCREMENT_COUNT({ commit }: any) {
+  async INCREMENT_COUNT({ commit }: ActionContext<CounterStore, any>) {
     try {
       commit('INCREMENT');
       return;
@@ -42,7 +46,7 @@ const actions = {
     }
   },
 
-  async DECREMENT_COUNT({ commit }: any) {
+  async DECREMENT_COUNT({ commit }: ActionContext<CounterStore, any>) {
     try {
       commit('DECREMENT');
       return;
@@ -53,7 +57,7 @@ const actions = {
 
 };
 
-export const counter = {
+export const counter: Module<CounterStore, any> = {
   namespaced: true,
   state,
   getters,

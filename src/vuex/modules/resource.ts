@@ -9,16 +9,20 @@ import {
   ADD_ARRAY,
 } from '../mutation-types';
 
-const state = {
+import { ActionContext, Module } from 'vuex';
 
-  resources: [] as ResourceF[],
+export interface ResourceStore {
+  resources: ResourceF[];
+}
 
+const state: ResourceStore = {
+  resources: [],
 };
 
 const getters = {
 
   // recursos cantidad (array)
-  QUANTITY_RECORDS: (state: any) => {
+  QUANTITY_RECORDS: (state: ResourceStore) => {
     return state.resources.length;
   },
 
@@ -26,7 +30,7 @@ const getters = {
 
 const mutations = {
 
-  [ADD_ARRAY]: (state: any, payload: ResourceF[]) => {
+  [ADD_ARRAY]: (state: ResourceStore, payload: ResourceF[]) => {
     state.resources = payload;
   },
 
@@ -34,7 +38,7 @@ const mutations = {
 
 const actions = {
 
-  async BY_COLLECTION({ state, commit }: any, payload: string) {
+  async BY_COLLECTION({ state, commit }: ActionContext<ResourceStore, any>, payload: string) {
     try {
       const snapshot = await dbclient.collection('resources').where(
         `collections.${payload}`, '==', true,
@@ -56,7 +60,7 @@ const actions = {
     }
   },
 
-  async SEARCH_BY_TITLE({ state, commit }: any, payload: string) {
+  async SEARCH_BY_TITLE({ state, commit }: ActionContext<ResourceStore, any>, payload: string) {
     try {
       const response = await JSONtestserver.get(
         `http://localhost:3000/items?title_like=${payload}`,
@@ -69,7 +73,7 @@ const actions = {
 
 };
 
-export const resource = {
+export const resource: Module<ResourceStore, any> = {
   namespaced: true,
   state,
   getters,

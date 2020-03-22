@@ -9,16 +9,19 @@ import {
   ADD_ARRAY,
 } from '../mutation-types';
 
-const state = {
+import { ActionContext, Module } from 'vuex';
 
-  collections: [] as CollectionF[],
+export interface CollectionStore {
+  collections: CollectionF[];
+}
 
+const state: CollectionStore = {
+  collections: [],
 };
 
 const getters = {
 
-  // recursos cantidad (array)
-  QUANTITY_RECORDS: (state: any) => {
+  QUANTITY_RECORDS: (state: CollectionStore) => {
     return state.collections.length;
   },
 
@@ -26,7 +29,7 @@ const getters = {
 
 const mutations = {
 
-  [ADD_ARRAY]: (state: any, payload: CollectionF[]) => {
+  [ADD_ARRAY]: (state: CollectionStore, payload: CollectionF[]) => {
     state.collections = payload;
   },
 
@@ -37,7 +40,7 @@ const actions = {
   /**
    * [BY_CATEGORY description]
    */
-  async BY_CATEGORY({ state, commit }: any, payload: string) {
+  async BY_CATEGORY({ state, commit }: ActionContext<CollectionStore, any>, payload: string) {
     try {
       const snapshot = await dbclient.collection('collections').where(
         `categories.${payload}`, '==', true,
@@ -62,7 +65,7 @@ const actions = {
   /**
    * [BY_CATEGORY description]
    */
-  async BY_THEME({ state, commit }: any, payload: string) {
+  async BY_THEME({ state, commit }: ActionContext<CollectionStore, any>, payload: string) {
     try {
       const snapshot = await dbclient.collection('collections').where(
         'theme', '==', payload,
@@ -84,7 +87,7 @@ const actions = {
     }
   },
 
-  async SEARCH_BY_THEME({ state, commit }: any, payload: number) {
+  async SEARCH_BY_THEME({ state, commit }: ActionContext<CollectionStore, any>, payload: number) {
     try {
       const response = await JSONtestserver.get(
         `http://localhost:3000/collections?theme=${payload}`,
@@ -97,7 +100,7 @@ const actions = {
 
 };
 
-export const collection = {
+export const collection: Module<CollectionStore, any> = {
   namespaced: true,
   state,
   getters,

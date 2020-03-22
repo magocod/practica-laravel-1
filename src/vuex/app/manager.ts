@@ -2,7 +2,29 @@
  *
  */
 
-const state = {
+import { Module } from 'vuex';
+
+export interface SimpleSidebarItem {
+  href: string;
+  router: boolean;
+  title: string;
+  icon: string;
+}
+
+export interface GroupSidebarItem {
+  action: string;
+  title: string;
+  items: SimpleSidebarItem[];
+}
+
+export interface ManagerStore {
+  itemsright: SimpleSidebarItem[];
+  itemsleft: GroupSidebarItem[];
+  itemsfooter: SimpleSidebarItem[];
+  unefa: any;
+}
+
+const state: ManagerStore = {
 
   // items sidebar derecha
   itemsright: [
@@ -95,6 +117,7 @@ const state = {
       ],
     },
   ],
+
   // footer
   itemsfooter: [
     {
@@ -135,7 +158,7 @@ const state = {
 
 };
 
-export const manager = {
+export const manager: Module<ManagerStore, any> = {
   namespaced: true,
   state,
 };

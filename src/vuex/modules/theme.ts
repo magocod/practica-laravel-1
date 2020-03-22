@@ -10,16 +10,20 @@ import {
   ADD_ARRAY,
 } from '../mutation-types';
 
-const state = {
+import { ActionContext, Module } from 'vuex';
 
-  themes: [] as ItemF[],
+export interface ThemeStore {
+  themes: ItemF[];
+}
 
+const state: ThemeStore = {
+  themes: [],
 };
 
 const getters = {
 
   // recursos cantidad (array)
-  QUANTITY_RECORDS: (state: any) => {
+  QUANTITY_RECORDS: (state: ThemeStore) => {
     return state.themes.length;
   },
 
@@ -27,7 +31,7 @@ const getters = {
 
 const mutations = {
 
-  [ADD_ARRAY]: (state: any, payload: ItemF[]) => {
+  [ADD_ARRAY]: (state: ThemeStore, payload: ItemF[]) => {
     state.themes = payload;
   },
 
@@ -35,7 +39,7 @@ const mutations = {
 
 const actions = {
 
-  async GET_ALL({ state, commit }: any) {
+  async GET_ALL({ state, commit }: ActionContext<ThemeStore, any>) {
     try {
       const response = await JSONtestserver.get(`http://localhost:3000/themes`);
       commit('ADD_ARRAY', response.data);
@@ -46,7 +50,7 @@ const actions = {
 
 };
 
-export const theme = {
+export const theme: Module<ThemeStore, any> = {
   namespaced: true,
   state,
   getters,

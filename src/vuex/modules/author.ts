@@ -10,16 +10,19 @@ import {
   ADD_ARRAY,
 } from '../mutation-types';
 
-const state = {
+import { ActionContext, Module } from 'vuex';
 
-  authors: [] as AuthorF[],
+export interface AuthorStore {
+  authors: AuthorF[];
+}
 
+const state: AuthorStore = {
+  authors: [],
 };
 
 const getters = {
 
-  // recursos cantidad (array)
-  QUANTITY_RECORDS: (state: any) => {
+  QUANTITY_RECORDS: (state: AuthorStore) => {
     return state.authors.length;
   },
 
@@ -35,7 +38,7 @@ const mutations = {
 
 const actions = {
 
-  async LOAD_ALL({ state, commit }: any) {
+  async LOAD_ALL({ state, commit }: ActionContext<AuthorStore, any>) {
     try {
       const snapshot = await dbclient.collection('authors').get();
       if (snapshot.metadata.fromCache === true) {
@@ -55,7 +58,7 @@ const actions = {
     }
   },
 
-  async GET_ALL({ state, commit }: any) {
+  async GET_ALL({ state, commit }: ActionContext<AuthorStore, any>) {
     try {
       const response = await JSONtestserver.get(`http://localhost:3000/authors`);
       commit('ADD_ARRAY', response.data);
@@ -66,7 +69,7 @@ const actions = {
 
 };
 
-export const author = {
+export const author: Module<AuthorStore, any> = {
   namespaced: true,
   state,
   getters,

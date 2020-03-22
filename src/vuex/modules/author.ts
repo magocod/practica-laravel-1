@@ -2,13 +2,15 @@
  *
  */
 
-import { JSONtestserver, dbclient, firebaseexport } from '../../services';
+import { JSONtestserver } from '../../services/temp_index';
 
 import { AuthorF } from '../interfaces';
-
 import {
-  ADD_ARRAY,
-} from '../mutation-types';
+  setArray,
+  pushArray,
+  updateValueArray,
+  deleteValueArray,
+} from '../generic';
 
 import { ActionContext, Module } from 'vuex';
 
@@ -30,33 +32,17 @@ const getters = {
 
 const mutations = {
 
-  [ADD_ARRAY]: (state: any, payload: AuthorF[]) => {
-    state.authors = payload;
-  },
+  SET_AUTHORS: setArray('authors'),
+
+  PUSH_AUTHOR: pushArray('authors'),
+
+  UPDATE_AUTHOR: updateValueArray('authors'),
+
+  DELETE_AUTHOR: deleteValueArray('authors'),
 
 };
 
 const actions = {
-
-  async LOAD_ALL({ state, commit }: ActionContext<AuthorStore, any>) {
-    try {
-      const snapshot = await dbclient.collection('authors').get();
-      if (snapshot.metadata.fromCache === true) {
-        return Promise.reject('opteniendo del cache SDK, sin conexion a internet');
-      } else {
-        const array: AuthorF[] = [];
-        snapshot.forEach((doc) => {
-          const ob: any = firebaseexport(doc.data(), doc.id);
-          array.push(ob);
-        });
-        // actualizar estado de la app
-        commit('ADD_ARRAY', array);
-        return 'conexion exitosa';
-      }
-    } catch (error) {
-      return Promise.reject(error);
-    }
-  },
 
   async GET_ALL({ state, commit }: ActionContext<AuthorStore, any>) {
     try {

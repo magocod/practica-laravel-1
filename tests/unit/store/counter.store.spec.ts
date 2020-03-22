@@ -2,12 +2,13 @@ import { expect } from 'chai';
 import { mount, createLocalVue } from '@vue/test-utils';
 
 import Vuex from 'vuex';
-import { storeConfig } from '@/vuex/store-config';
+import { Store } from 'vuex';
+import { storeConfig, RootStore } from '@/vuex/store-config';
 
 describe('Counter.store', () => {
 
   let localVue: any;
-  let store: any;
+  let store: Store<RootStore>;
 
   beforeEach(() => {
     localVue = createLocalVue();
@@ -17,28 +18,32 @@ describe('Counter.store', () => {
     store = new Vuex.Store(cloneConfig);
   });
 
-  it('mutacion INCREMENT', () => {
+  afterEach(() => {
+    store.state.counter.count = 0;
+  });
+
+  it('Mutation INCREMENT', () => {
     expect(store.getters['counter/GET_COUNT']).to.equal(0);
     store.commit('counter/INCREMENT');
     expect(store.getters['counter/GET_COUNT']).to.equal(1);
   });
 
-  it('mutacion DECREMENT', () => {
-    expect(store.getters['counter/GET_COUNT']).to.equal(1);
-    store.commit('counter/DECREMENT');
+  it('Mutation DECREMENT', () => {
     expect(store.getters['counter/GET_COUNT']).to.equal(0);
+    store.commit('counter/DECREMENT');
+    expect(store.getters['counter/GET_COUNT']).to.equal(-1);
   });
 
-  it('action INCREMENT_COUNT', async () => {
+  it('Action INCREMENT_COUNT', async () => {
     expect(store.getters['counter/GET_COUNT']).to.equal(0);
     await store.dispatch('counter/INCREMENT_COUNT');
     expect(store.getters['counter/GET_COUNT']).to.equal(1);
   });
 
-  it('action DECREMENT_COUNT', async () => {
-    expect(store.getters['counter/GET_COUNT']).to.equal(1);
-    await store.dispatch('counter/DECREMENT_COUNT');
+  it('Action DECREMENT_COUNT', async () => {
     expect(store.getters['counter/GET_COUNT']).to.equal(0);
+    await store.dispatch('counter/DECREMENT_COUNT');
+    expect(store.getters['counter/GET_COUNT']).to.equal(-1);
   });
 
 });

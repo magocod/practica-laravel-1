@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test:store": "vue-cli-service test:unit -t tests/unit/store",
+    "test:store": "vue-cli-service test:unit --grep .store",
+    "test:temp": "vue-cli-service test:unit --grep Author.store",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

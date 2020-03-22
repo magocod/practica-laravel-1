@@ -4,16 +4,12 @@
 
 import { JSONtestserver } from '../../services/temp_index';
 
-import { ItemF } from '../interfaces';
-
-import {
-  ADD_ARRAY,
-} from '../mutation-types';
+import { ItemSql } from '../interfaces';
 
 import { ActionContext, Module } from 'vuex';
 
 export interface ThemeStore {
-  themes: ItemF[];
+  themes: ItemSql[];
 }
 
 const state: ThemeStore = {
@@ -22,8 +18,11 @@ const state: ThemeStore = {
 
 const getters = {
 
-  // recursos cantidad (array)
-  QUANTITY_RECORDS: (state: ThemeStore) => {
+  GET_ALL(state: ThemeStore) {
+    return state.themes;
+  },
+
+  COUNT(state: ThemeStore): number {
     return state.themes.length;
   },
 
@@ -31,8 +30,35 @@ const getters = {
 
 const mutations = {
 
-  [ADD_ARRAY]: (state: ThemeStore, payload: ItemF[]) => {
+  SET_THEMES(state: ThemeStore, payload: ItemSql[]) {
     state.themes = payload;
+  },
+
+  PUSH_THEME(state: ThemeStore, payload: ItemSql) {
+    const value = state.themes.find((element) => {
+      return element.id === payload.id;
+    });
+    if (value === undefined) {
+      state.themes.push(payload);
+    }
+  },
+
+  UPDATE_THEME(state: ThemeStore, payload: ItemSql) {
+    const indexupdate = state.themes.findIndex((element) => {
+      return element.id === payload.id;
+    });
+    if (indexupdate > -1) {
+      state.themes.splice(indexupdate, 1, payload);
+    }
+  },
+
+  DELETE_THEME(state: ThemeStore, payload: ItemSql) {
+    const indexdelete = state.themes.findIndex((element) => {
+      return element.id === payload.id;
+    });
+    if (indexdelete > -1) {
+      state.themes.splice(indexdelete, 1);
+    }
   },
 
 };

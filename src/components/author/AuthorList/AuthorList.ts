@@ -32,23 +32,7 @@ export default Vue.extend({
     },
 
     load() {
-      this.$store.dispatch('author/LOAD_ALL').then((response) => {
-        console.log(response);
-        this.$snotify.success('Operation Description', 'COMPLETED', {
-          timeout: 2000,
-          showProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-        });
-      }).catch((error: any) => {
-        console.log(error);
-        this.$snotify.error('Operation Description', 'FAILURE', {
-          timeout: 2000,
-          showProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-        });
-      });
+      // pass
     },
 
   },

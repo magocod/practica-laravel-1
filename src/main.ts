@@ -25,7 +25,6 @@ import '@/plugins/vuesnotify';
 
 // instalar filtros
 Vue.use(filters);
-
 Vue.config.productionTip = false;
 
 new Vue({

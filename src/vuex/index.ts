@@ -7,7 +7,6 @@ import {
 } from './app';
 
 import {
-  author,
   category,
   collection,
   counter,
@@ -25,7 +24,6 @@ export * from './interfaces';
 export default new Vuex.Store({
   modules: {
     manager,
-    author,
     category,
     collection,
     counter,

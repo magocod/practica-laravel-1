@@ -27,10 +27,10 @@ dbclient.settings({ timestampsInSnapshots: true });
 // db_client.enablePersistence();
 
 /**
- * @param {object} doc.data() => retornado por consulta firestore
+ * [firebaseexport description]
+ * @param {any}    doc.data() => retornado por consulta firestore
  * @param {string} doc.id => retornado identificador objeto
  */
-
 function firebaseexport(data: any, id: string) {
   const mold = { key: id };
 

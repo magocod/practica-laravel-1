@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import { Author } from '@/vuex';
+import { AuthorF } from '@/vuex';
 
 // mapear estado del store
 import { mapState } from 'vuex';
@@ -26,7 +26,7 @@ export default Vue.extend({
 
   methods: {
 
-    collections(item: Author) {
+    collections(item: AuthorF) {
       console.log(item);
       // this.$router.push({name: 'collection_list', params: { key: item.name }});
     },

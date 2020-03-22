@@ -2,9 +2,9 @@
  *
  */
 
-import { JSONtestserver, dbclient, firebaseexport } from '../../services';
+import { JSONtestserver } from '../../services/temp_index';
 
-import { Item } from '../interfaces';
+import { ItemF } from '../interfaces';
 
 import {
   ADD_ARRAY,
@@ -12,7 +12,7 @@ import {
 
 const state = {
 
-  themes: [] as Item[],
+  themes: [] as ItemF[],
 
 };
 
@@ -27,7 +27,7 @@ const getters = {
 
 const mutations = {
 
-  [ADD_ARRAY]: (state: any, payload: Item[]) => {
+  [ADD_ARRAY]: (state: any, payload: ItemF[]) => {
     state.themes = payload;
   },
 
@@ -35,31 +35,7 @@ const mutations = {
 
 const actions = {
 
-  LOAD_ALL({ state, commit }: any) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      dbclient.collection('themes').get().then((snapshot) => {
-        // revisar metadatos => que no provenga del cache
-        if (snapshot.metadata.fromCache === true) {
-          reject('opteniendo del cache SDK, sin conexion a internet');
-        } else {
-          const array: Item[] = [];
-          snapshot.forEach((doc) => {
-            const ob: any = firebaseexport(doc.data(), doc.id);
-            array.push(ob);
-          });
-          // actualizar estado de la app
-          commit('ADD_ARRAY', array);
-          resolve('conexion exitosa');
-        }
-      }).catch((err) => {
-        reject(err);
-      });
-    });
-  }, // LOAD ALL
-
-  ALL({ state, commit }: any) {
+  GET_ALL({ state, commit }: any) {
     // promesa
     return new Promise((resolve, reject) => {
       // usando intancia api

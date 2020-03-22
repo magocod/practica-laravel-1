@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 // mapear estado del store
 import { mapState } from 'vuex';
-import { Collection } from '@/vuex/interfaces/firestore';
+import { CollectionF } from '@/vuex/interfaces/firestore';
 
 import { GenericList } from '../../partials';
 
@@ -27,7 +27,7 @@ export default Vue.extend({
 
   methods: {
 
-    eventlist(item: Collection) {
+    eventlist(item: CollectionF) {
       console.log(item);
       this.$store.dispatch('collection/BY_THEME', item.title).then((response) => {
         console.log(response);

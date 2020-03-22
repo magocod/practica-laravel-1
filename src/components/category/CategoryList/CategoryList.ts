@@ -3,7 +3,7 @@ import Vue from 'vue';
 // mapear estado del store
 import { mapState } from 'vuex';
 
-import { Item } from '@/vuex';
+import { ItemF } from '@/vuex';
 import { GenericList } from '../../partials';
 
 export default Vue.extend({
@@ -27,7 +27,7 @@ export default Vue.extend({
 
   methods: {
 
-    eventlist(item: Item) {
+    eventlist(item: ItemF) {
       // console.log(item);
       this.$store.dispatch('collection/BY_CATEGORY', item.title).then((response) => {
         console.log(response);

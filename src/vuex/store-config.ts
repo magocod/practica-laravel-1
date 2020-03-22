@@ -1,6 +1,7 @@
 import {
   counter,
-} from './modules/counter';
+  theme,
+} from './modules/temp_index';
 
 /**
  * [storeConfig description]
@@ -10,5 +11,6 @@ import {
 export const storeConfig = {
   modules: {
     counter,
+    theme,
   },
 };

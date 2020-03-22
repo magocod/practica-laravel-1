@@ -3,7 +3,7 @@
  */
 
 import { JSONtestserver, dbclient, firebaseexport } from '../../services';
-import { Collection } from '../interfaces';
+import { CollectionF } from '../interfaces';
 
 import {
   ADD_ARRAY,
@@ -11,7 +11,7 @@ import {
 
 const state = {
 
-  collections: [] as Collection[],
+  collections: [] as CollectionF[],
 
 };
 
@@ -26,7 +26,7 @@ const getters = {
 
 const mutations = {
 
-  [ADD_ARRAY]: (state: any, payload: Collection[]) => {
+  [ADD_ARRAY]: (state: any, payload: CollectionF[]) => {
     state.collections = payload;
   },
 
@@ -43,7 +43,7 @@ const actions = {
         if (snapshot.metadata.fromCache === true) {
           reject('opteniendo del cache SDK, sin conexion a internet');
         } else {
-          const array: Collection[] = [];
+          const array: CollectionF[] = [];
           snapshot.forEach((doc) => {
             const ob: any = firebaseexport(doc.data(), doc.id);
             array.push(ob);
@@ -67,7 +67,7 @@ const actions = {
         if (snapshot.metadata.fromCache === true) {
           reject('opteniendo del cache SDK, sin conexion a internet');
         } else {
-          const array: Collection[] = [];
+          const array: CollectionF[] = [];
           snapshot.forEach((doc) => {
             const ob: any = firebaseexport(doc.data(), doc.id);
             array.push(ob);

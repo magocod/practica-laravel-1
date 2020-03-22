@@ -5,7 +5,7 @@
 /**
  *
  */
-export interface Identifier {
+export interface FirestoreIdentifier {
   key: string;
   timestamp: Date;
 }
@@ -13,14 +13,14 @@ export interface Identifier {
 /**
  *
  */
-export interface Author extends Identifier {
+export interface AuthorF extends FirestoreIdentifier {
   name: string;
 }
 
 /**
  *
  */
-export interface Item extends Identifier {
+export interface ItemF extends FirestoreIdentifier {
   title: string;
   description: string;
 }
@@ -28,7 +28,7 @@ export interface Item extends Identifier {
 /**
  *
  */
-export interface Collection extends Item {
+export interface CollectionF extends ItemF {
   theme: string;
   categories: string[];
 }
@@ -36,7 +36,7 @@ export interface Collection extends Item {
 /**
  *
  */
-export interface Resource extends Item {
+export interface ResourceF extends ItemF {
   theme: string;
   collections: string[];
 }

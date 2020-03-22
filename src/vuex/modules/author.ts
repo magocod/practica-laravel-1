@@ -4,7 +4,7 @@
 
 import { JSONtestserver, dbclient, firebaseexport } from '../../services';
 
-import { Author } from '../interfaces';
+import { AuthorF } from '../interfaces';
 
 import {
   ADD_ARRAY,
@@ -12,7 +12,7 @@ import {
 
 const state = {
 
-  authors: [] as Author[],
+  authors: [] as AuthorF[],
 
 };
 
@@ -27,7 +27,7 @@ const getters = {
 
 const mutations = {
 
-  [ADD_ARRAY]: (state: any, payload: Author[]) => {
+  [ADD_ARRAY]: (state: any, payload: AuthorF[]) => {
     state.authors = payload;
   },
 
@@ -44,7 +44,7 @@ const actions = {
         if (snapshot.metadata.fromCache === true) {
           reject('opteniendo del cache SDK, sin conexion a internet');
         } else {
-          const array: Author[] = [];
+          const array: AuthorF[] = [];
           snapshot.forEach((doc) => {
             const ob: any = firebaseexport(doc.data(), doc.id);
             array.push(ob);

@@ -3,7 +3,7 @@ import Vue from 'vue';
 // mapear estado del store
 import { mapState } from 'vuex';
 
-import { Collection } from '@/vuex/interfaces/firestore';
+import { CollectionF } from '@/vuex/interfaces/firestore';
 import { GenericList } from '../../partials';
 
 export default Vue.extend({
@@ -31,7 +31,7 @@ export default Vue.extend({
       this.$router.push({ name: 'home'});
     },
 
-    eventlist(item: Collection) {
+    eventlist(item: CollectionF) {
       // console.log(item);
       this.$store.dispatch('resource/BY_COLLECTION', item.title).then((response) => {
         console.log(response);

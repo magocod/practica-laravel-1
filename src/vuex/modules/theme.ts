@@ -35,20 +35,14 @@ const mutations = {
 
 const actions = {
 
-  GET_ALL({ state, commit }: any) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      JSONtestserver.get(`http://localhost:3000/themes`).then((response) => {
-        resolve('exito en la consulta');
-        // ejecutar mutaciones
-        // console.log(response.data);
-        commit('ADD_ARRAY', response.data);
-      }).catch((error: any) => {
-        reject(error);
-      });
-    });
-  }, // ALL
+  async GET_ALL({ state, commit }: any) {
+    try {
+      const response = await JSONtestserver.get(`http://localhost:3000/themes`);
+      commit('ADD_ARRAY', response.data);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
 
 };
 

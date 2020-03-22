@@ -34,69 +34,66 @@ const mutations = {
 
 const actions = {
 
-  BY_CATEGORY({ state, commit }: any, category: string) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      dbclient.collection('collections').where(`categories.${category}`, '==', true).get().then((snapshot) => {
-        // revisar metadatos => que no provenga del cache
-        if (snapshot.metadata.fromCache === true) {
-          reject('opteniendo del cache SDK, sin conexion a internet');
-        } else {
-          const array: CollectionF[] = [];
-          snapshot.forEach((doc) => {
-            const ob: any = firebaseexport(doc.data(), doc.id);
-            array.push(ob);
-          });
-          // actualizar estado de la app
-          commit('ADD_ARRAY', array);
-          resolve('conexion exitosa');
-        }
-      }).catch((err) => {
-        reject(err);
-      });
-    });
+  /**
+   * [BY_CATEGORY description]
+   */
+  async BY_CATEGORY({ state, commit }: any, payload: string) {
+    try {
+      const snapshot = await dbclient.collection('collections').where(
+        `categories.${payload}`, '==', true,
+      ).get();
+      if (snapshot.metadata.fromCache === true) {
+        return Promise.reject('opteniendo del cache SDK, sin conexion a internet');
+      } else {
+        const array: CollectionF[] = [];
+        snapshot.forEach((doc) => {
+          const ob: any = firebaseexport(doc.data(), doc.id);
+          array.push(ob);
+        });
+        // actualizar estado de la app
+        commit('ADD_ARRAY', array);
+        return 'conexion exitosa';
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
   },
 
-  BY_THEME({ state, commit }: any, theme: string) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      dbclient.collection('collections').where('theme', '==', theme).get().then((snapshot) => {
-        // revisar metadatos => que no provenga del cache
-        if (snapshot.metadata.fromCache === true) {
-          reject('opteniendo del cache SDK, sin conexion a internet');
-        } else {
-          const array: CollectionF[] = [];
-          snapshot.forEach((doc) => {
-            const ob: any = firebaseexport(doc.data(), doc.id);
-            array.push(ob);
-          });
-          // actualizar estado de la app
-          commit('ADD_ARRAY', array);
-          resolve('conexion exitosa');
-        }
-      }).catch((err) => {
-        reject(err);
-      });
-    });
+  /**
+   * [BY_CATEGORY description]
+   */
+  async BY_THEME({ state, commit }: any, payload: string) {
+    try {
+      const snapshot = await dbclient.collection('collections').where(
+        'theme', '==', payload,
+      ).get();
+      if (snapshot.metadata.fromCache === true) {
+        return Promise.reject('opteniendo del cache SDK, sin conexion a internet');
+      } else {
+        const array: CollectionF[] = [];
+        snapshot.forEach((doc) => {
+          const ob: any = firebaseexport(doc.data(), doc.id);
+          array.push(ob);
+        });
+        // actualizar estado de la app
+        commit('ADD_ARRAY', array);
+        return 'conexion exitosa';
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
   },
 
-  SEARCH_BY_THEME({ state, commit }: any, id: number) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      JSONtestserver.get(`http://localhost:3000/collections?theme=${id}`)
-      .then((response) => {
-        resolve('exito en la consulta');
-        // ejecutar mutaciones
-        // console.log(response.data);
-        commit('ADD_ARRAY', response.data);
-      }).catch((error: any) => {
-        reject(error);
-      });
-    });
-  }, // ALL
+  async SEARCH_BY_THEME({ state, commit }: any, payload: number) {
+    try {
+      const response = await JSONtestserver.get(
+        `http://localhost:3000/collections?theme=${payload}`,
+      );
+      commit('ADD_ARRAY', response.data);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
 
 };
 

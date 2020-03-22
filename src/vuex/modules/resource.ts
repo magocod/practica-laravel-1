@@ -34,44 +34,38 @@ const mutations = {
 
 const actions = {
 
-  BY_COLLECTION({ state, commit }: any, collection: string) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      dbclient.collection('resources').where(`collections.${collection}`, '==', true).get().then((snapshot) => {
-        // revisar metadatos => que no provenga del cache
-        if (snapshot.metadata.fromCache === true) {
-          reject('opteniendo del cache SDK, sin conexion a internet');
-        } else {
-          const array: ResourceF[] = [];
-          snapshot.forEach((doc) => {
-            const ob: any = firebaseexport(doc.data(), doc.id);
-            array.push(ob);
-          });
-          // actualizar estado de la app
-          commit('ADD_ARRAY', array);
-          resolve('conexion exitosa');
-        }
-      }).catch((err) => {
-        reject(err);
-      });
-    });
+  async BY_COLLECTION({ state, commit }: any, payload: string) {
+    try {
+      const snapshot = await dbclient.collection('resources').where(
+        `collections.${payload}`, '==', true,
+      ).get();
+      if (snapshot.metadata.fromCache === true) {
+        return Promise.reject('opteniendo del cache SDK, sin conexion a internet');
+      } else {
+        const array: ResourceF[] = [];
+        snapshot.forEach((doc) => {
+          const ob: any = firebaseexport(doc.data(), doc.id);
+          array.push(ob);
+        });
+        // actualizar estado de la app
+        commit('ADD_ARRAY', array);
+        return 'conexion exitosa';
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
   },
 
-  SEARCH_BY_TITLE({ state, commit }: any, title: string) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      JSONtestserver.get(`http://localhost:3000/items?title_like=${title}`).then((response) => {
-        resolve('exito en la consulta');
-        // ejecutar mutaciones
-        // console.log(response.data);
-        commit('ADD_ARRAY', response.data);
-      }).catch((error: any) => {
-        reject(error);
-      });
-    });
-  }, // SEARCH BY TITLE
+  async SEARCH_BY_TITLE({ state, commit }: any, payload: string) {
+    try {
+      const response = await JSONtestserver.get(
+        `http://localhost:3000/items?title_like=${payload}`,
+      );
+      commit('ADD_ARRAY', response.data);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
 
 };
 

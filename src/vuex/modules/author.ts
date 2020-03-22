@@ -35,44 +35,34 @@ const mutations = {
 
 const actions = {
 
-  LOAD_ALL({ state, commit }: any) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      dbclient.collection('authors').get().then((snapshot) => {
-        // revisar metadatos => que no provenga del cache
-        if (snapshot.metadata.fromCache === true) {
-          reject('opteniendo del cache SDK, sin conexion a internet');
-        } else {
-          const array: AuthorF[] = [];
-          snapshot.forEach((doc) => {
-            const ob: any = firebaseexport(doc.data(), doc.id);
-            array.push(ob);
-          });
-          // actualizar estado de la app
-          commit('ADD_ARRAY', array);
-          resolve('conexion exitosa');
-        }
-      }).catch((err) => {
-        reject(err);
-      });
-    });
-  }, // LOAD ALL
+  async LOAD_ALL({ state, commit }: any) {
+    try {
+      const snapshot = await dbclient.collection('authors').get();
+      if (snapshot.metadata.fromCache === true) {
+        return Promise.reject('opteniendo del cache SDK, sin conexion a internet');
+      } else {
+        const array: AuthorF[] = [];
+        snapshot.forEach((doc) => {
+          const ob: any = firebaseexport(doc.data(), doc.id);
+          array.push(ob);
+        });
+        // actualizar estado de la app
+        commit('ADD_ARRAY', array);
+        return 'conexion exitosa';
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
 
-  ALL({ state, commit }: any) {
-    // promesa
-    return new Promise((resolve, reject) => {
-      // usando intancia api
-      JSONtestserver.get(`http://localhost:3000/authors`).then((response) => {
-        resolve('exito en la consulta');
-        // ejecutar mutaciones
-        // console.log(response.data);
-        commit('ADD_ARRAY', response.data);
-      }).catch((error: any) => {
-        reject(error);
-      });
-    });
-  }, // ALL
+  async GET_ALL({ state, commit }: any) {
+    try {
+      const response = await JSONtestserver.get(`http://localhost:3000/authors`);
+      commit('ADD_ARRAY', response.data);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
 
 };
 

@@ -24,6 +24,10 @@ const state: AuthorStore = {
 
 const getters = {
 
+  GET_ALL(state: AuthorStore) {
+    return state.authors;
+  },
+
   COUNT: (state: AuthorStore) => {
     return state.authors.length;
   },

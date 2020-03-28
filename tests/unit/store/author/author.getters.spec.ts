@@ -7,7 +7,7 @@ import { storeConfig, RootStore } from '@/vuex/store-config';
 
 import { GenerateGenericList } from '../../../fixtures';
 
-describe('Theme.store.getters', () => {
+describe('Author.store.getters', () => {
 
   let localVue: any;
   let store: Store<RootStore>;
@@ -21,19 +21,19 @@ describe('Theme.store.getters', () => {
     const cloneConfig = Object.assign({}, storeConfig);
     // console.log(cloneConfig);
     store = new Vuex.Store(cloneConfig);
-    store.state.theme.themes = listElements;
+    store.state.author.authors = listElements;
   });
 
   afterEach(() => {
-    store.state.theme.themes = [];
+    store.state.author.authors = [];
   });
 
   it('Getter (GET_ALL) (optener todos los elementos)', () => {
-    expect(store.getters['theme/GET_ALL']).to.equal(listElements);
+    expect(store.getters['author/GET_ALL']).to.equal(listElements);
   });
 
   it('Getter (COUNT) (añadir elemento en listado (si no existe))', () => {
-    expect(store.getters['theme/COUNT']).to.equal(testElements);
+    expect(store.getters['author/COUNT']).to.equal(testElements);
   });
 
 });

@@ -24,7 +24,7 @@ const state: AuthorStore = {
 
 const getters = {
 
-  QUANTITY_RECORDS: (state: AuthorStore) => {
+  COUNT: (state: AuthorStore) => {
     return state.authors.length;
   },
 

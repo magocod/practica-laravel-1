@@ -11,9 +11,9 @@ describe('Theme.store.mutations', () => {
 
   let localVue: any;
   let store: Store<RootStore>;
+  let listElements: any[];
 
   const testElements = 5;
-  const listElements = GenerateGenericList(testElements);
   const newElement: any = { id: 100, other: '...' };
   const existElement: any = { id: 1, other: '...' };
   const updatedElement: any = { id: 3, other: 'updated' };
@@ -24,6 +24,7 @@ describe('Theme.store.mutations', () => {
     const cloneConfig = Object.assign({}, storeConfig);
     // console.log(cloneConfig);
     store = new Vuex.Store(cloneConfig);
+    listElements = GenerateGenericList(testElements);
   });
 
   afterEach(() => {
@@ -37,9 +38,12 @@ describe('Theme.store.mutations', () => {
   });
 
   it('Mutation (PUSH_THEME) (añadir elemento en listado (si no existe))', () => {
+    store.state.theme.themes = listElements;
     store.commit('theme/PUSH_THEME', newElement);
-    expect(store.state.theme.themes.length).to.equal(1);
-    assert(store.state.theme.themes.indexOf(newElement) > -1, 'element not added');
+    expect(store.state.theme.themes.length).to.equal(testElements + 1);
+    const index = store.state.theme.themes.indexOf(newElement);
+    assert(index > -1, 'element not added');
+    expect(index).to.equal(store.state.theme.themes.length - 1);
   });
 
   it('Mutation (PUSH_THEME) (no añadir elemento en listado (ya existe))', () => {

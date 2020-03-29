@@ -6,12 +6,12 @@ import 'firebase/firestore';
 
 // configuracion
 const config = {
-  apiKey: 'AIzaSyBuRkin0PqL4LExZ02MYm7HbRIWFm9AUDA',
-  authDomain: 'vue-spa-1.firebaseapp.com',
-  databaseURL: 'https://vue-spa-1.firebaseio.com',
-  projectId: 'vue-spa-1',
-  storageBucket: 'vue-spa-1.appspot.com',
-  messagingSenderId: '179740982425',
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIM,
+  databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
 
 // inicializar firebase

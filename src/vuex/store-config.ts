@@ -7,6 +7,9 @@ import {
   AuthorStore,
 } from './modules/temp_index';
 
+import { manager, ManagerStore } from './app/manager';
+
+
 import { Module } from 'vuex';
 
 /**
@@ -16,6 +19,7 @@ export interface RootStore {
   counter: CounterStore;
   theme: ThemeStore;
   author: AuthorStore;
+  manager: ManagerStore;
 }
 
 /**
@@ -28,5 +32,6 @@ export const storeConfig: Module<any, RootStore> = {
     counter,
     theme,
     author,
+    manager,
   },
 };

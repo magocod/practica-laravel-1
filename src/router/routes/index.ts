@@ -1,4 +1,4 @@
-export * from './author';
+export * from './public';
 export * from './category';
 export * from './collection';
 export * from './info';

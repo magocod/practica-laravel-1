@@ -3,7 +3,6 @@ import Vue from 'vue';
 import { RouteConfig } from 'vue-router';
 import Router from 'vue-router';
 
-// rutas publicas
 import {
   authorRoutes,
   categoryRoutes,
@@ -23,7 +22,11 @@ import {
 
 Vue.use(Router);
 
-const routes: RouteConfig[] = [
+export interface RouteConfigExtend extends RouteConfig {
+  fullpath?: string;
+}
+
+export const routes: RouteConfigExtend[] = [
   {
     path: '/',
     name: 'home',
@@ -33,8 +36,15 @@ const routes: RouteConfig[] = [
     path: '*',
     component: LazyError404,
   },
+  {
+    path: '/public',
+    name: 'public',
+    component: Home,
+    children: [
+      ...authorRoutes,
+    ],
+  },
   // lazy loading
-  ...authorRoutes,
   ...categoryRoutes,
   ...collectionRoutes,
   ...infoRoutes,
@@ -46,12 +56,8 @@ const routes: RouteConfig[] = [
 
 const router = new Router({
   mode: 'history',
-  // directorio
-  // base: __dirname,
   base: process.env.BASE_URL,
-  // arreglo con ruta -> componente
   routes,
 });
 
-// exportar resultado de la configuracion
 export default router;

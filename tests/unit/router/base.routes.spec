@@ -1,6 +1,6 @@
 import { VueConstructor } from 'vue';
 
-import { expect } from 'chai';
+import { expect, assert } from 'chai';
 import {
     createLocalVue,
 } from '@vue/test-utils';
@@ -27,10 +27,12 @@ describe('Base.router.routes', () => {
   // });
 
   it('Route (/) (ruta base) (carga ansiosa) (component Home)', async () => {
+    console.log(router);
     const components = router.getMatchedComponents('/');
     expect(components.length).to.equal(1);
     // console.log(components[0]);
     // console.log(HomeComponent);
+    console.log(components[0].name);
     // expect(components[0].name).to.equal('Home');
     expect(components[0]).to.equal(HomeComponent);
   });
@@ -53,12 +55,12 @@ describe('Base.router.routes', () => {
 
   it('Route (/authors) (Lista Autores) (carga perezosa) (component AuthorList)', async () => {
     const components = router.getMatchedComponents('/public/authors/');
-    console.log(components);
-    expect(components.length).to.equal(1);
     // console.log(components);
-    const res: any = components[0];
+    // console.log(components);
+    assert(components.length > 0, 'components not matched');
+    const res: any = components[components.length - 1];
     const func: FunctionLazyComponent = res;
-    // console.log(func.name);;
+    console.log(func.name);
     expect(func.name).to.equal('LazyAuthorList');
     // console.log(await func());
     const loadModule = await func();

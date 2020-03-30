@@ -1,3 +1,3 @@
-const LazyAuthorList = () => import(/* webpackChunkName: "author" */ './AuthorList.vue');
+const LazyAuthorList = () => import(/* webpackChunkName: "public_admin" */ './AuthorList.vue');
 
 export { LazyAuthorList };

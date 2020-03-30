@@ -1,3 +1,3 @@
-const LazyCategoryList = () => import(/* webpackChunkName: "category" */ './CategoryList.vue');
+const LazyCategoryList = () => import(/* webpackChunkName: "public_admin" */ './CategoryList.vue');
 
 export { LazyCategoryList };

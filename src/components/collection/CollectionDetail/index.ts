@@ -1,3 +1,3 @@
-const LazyCollectionDetail = () => import(/* webpackChunkName: "collection" */ './CollectionDetail.vue');
+const LazyCollectionDetail = () => import(/* webpackChunkName: "public_admin" */ './CollectionDetail.vue');
 
 export { LazyCollectionDetail };

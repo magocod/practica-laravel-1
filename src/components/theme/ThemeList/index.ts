@@ -1,3 +1,3 @@
-const LazyThemeList = () => import(/* webpackChunkName: "theme" */ './ThemeList.vue');
+const LazyThemeList = () => import(/* webpackChunkName: "public_admin" */ './ThemeList.vue');
 
 export { LazyThemeList };

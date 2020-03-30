@@ -1,3 +1,3 @@
-const LazyUnefa = () => import(/* webpackChunkName: "about" */ './Unefa.vue');
+const LazyUnefa = () => import(/* webpackChunkName: "public_admin" */ './Unefa.vue');
 
 export { LazyUnefa };

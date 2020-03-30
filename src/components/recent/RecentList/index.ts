@@ -1,3 +1,3 @@
-const LazyRecentList = () => import(/* webpackChunkName: "recent" */ './RecentList.vue');
+const LazyRecentList = () => import(/* webpackChunkName: "public_admin" */ './RecentList.vue');
 
 export { LazyRecentList };

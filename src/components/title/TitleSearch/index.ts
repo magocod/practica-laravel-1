@@ -1,3 +1,3 @@
-const LazyTitleSearch = () => import(/* webpackChunkName: "title" */ './TitleSearch.vue');
+const LazyTitleSearch = () => import(/* webpackChunkName: "public_admin" */ './TitleSearch.vue');
 
 export { LazyTitleSearch };

@@ -12,11 +12,12 @@ import {
   themeRoutes,
   resourceRoutes,
   recentRoutes,
-} from './routes';
+} from './routes/public';
 
 // eager loading
 import {
   Home,
+  LazyPublicAdmin,
   LazyError404,
 } from '../views';
 
@@ -24,9 +25,10 @@ Vue.use(Router);
 
 export interface RouteConfigExtend extends RouteConfig {
   fullpath?: string;
+  LoadFunctionName?: string;
 }
 
-export const routes: RouteConfigExtend[] = [
+export const routes: RouteConfig[] = [
   {
     path: '/',
     name: 'home',
@@ -39,19 +41,19 @@ export const routes: RouteConfigExtend[] = [
   {
     path: '/public',
     name: 'public',
-    component: Home,
+    component: LazyPublicAdmin,
     children: [
+      // lazy loading
       ...authorRoutes,
+      ...categoryRoutes,
+      ...collectionRoutes,
+      ...infoRoutes,
+      ...titleRoutes,
+      ...themeRoutes,
+      ...resourceRoutes,
+      ...recentRoutes,
     ],
   },
-  // lazy loading
-  ...categoryRoutes,
-  ...collectionRoutes,
-  ...infoRoutes,
-  ...titleRoutes,
-  ...themeRoutes,
-  ...resourceRoutes,
-  ...recentRoutes,
 ];
 
 const router = new Router({

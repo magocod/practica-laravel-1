@@ -2,11 +2,11 @@ import { RouteConfig } from 'vue-router';
 
 import {
   LazyResourceList,
-} from '../../components';
+} from '../../../components';
 
 export const resourceRoutes: RouteConfig[] = [
   {
-    path: '/resources/:key',
+    path: 'resources/:key',
     name: 'resource_list',
     component: LazyResourceList,
   },

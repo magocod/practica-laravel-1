@@ -2,11 +2,11 @@ import { RouteConfig } from 'vue-router';
 
 import {
     LazyUnefa,
-} from '../../components';
+} from '../../../components';
 
 export const infoRoutes: RouteConfig[] = [
   {
-    path: '/unefa',
+    path: 'unefa',
     name: 'footer_unefa',
     component: LazyUnefa,
   },

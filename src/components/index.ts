@@ -1,3 +1,4 @@
+export * from './admin';
 export * from './about';
 export * from './author';
 export * from './category';

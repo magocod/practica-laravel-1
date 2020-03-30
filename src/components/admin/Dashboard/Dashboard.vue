@@ -3,5 +3,5 @@
     DASHBOARD
   </div>
 </template>
-<script src="./Home.ts" lang="ts"></script>
-<style src="./Home.css"></style>
+<script src="./Dashboard.ts" lang="ts"></script>
+<style src="./Dashboard.css"></style>

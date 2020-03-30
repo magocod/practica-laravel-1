@@ -14,9 +14,14 @@ import {
   recentRoutes,
 } from './routes/public';
 
+import {
+  profileRoutes,
+} from './routes/admin';
+
 // eager loading
 import {
   Home,
+  LazyAdmin,
   LazyPublicAdmin,
   LazyError404,
 } from '../views';
@@ -52,6 +57,14 @@ export const routes: RouteConfig[] = [
       ...themeRoutes,
       ...resourceRoutes,
       ...recentRoutes,
+    ],
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: LazyAdmin,
+    children: [
+      ...profileRoutes,
     ],
   },
 ];

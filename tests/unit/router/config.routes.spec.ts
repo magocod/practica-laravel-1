@@ -40,6 +40,28 @@ function eagerLoadingRoutes(listRoutes: RouteConfig[], routerInstance: Router) {
     // verificar anidacion
     if (route.children) {
       const subroutes = route.children;
+      for (const subroute of subroutes) {
+        const subcomponents = routerInstance.getMatchedComponents(
+          `${route.path}/${subroute.path}`,
+        );
+        console.log(subcomponents);
+        console.log(subcomponents.length);
+        expect(subcomponents.length).to.equal(2);
+        // verificar component a renderizar y tipo de carga (ultimo en la lista)
+        const subrendervalue: any = subcomponents[subcomponents.length - 1];
+        console.log('children', subrendervalue.name);
+        if (subrendervalue.name === 'VueComponent') {
+          // verificar carga ansiosa
+          const subloadcomponent: Component = subrendervalue;
+          expect(subloadcomponent).to.equal(subroute.component);
+        } else {
+          // verificar carga peresoza
+          const subloadfunction: FunctionLazyComponent = subrendervalue;
+          const subcomponent: any = subroute.component;
+          const subcomponentName: any = subcomponent.name;
+          expect(subloadfunction.name).to.equal(subcomponentName);
+        }
+      }
     }
   }
 }
@@ -54,7 +76,7 @@ describe('Config.router.routes', () => {
     router = CreateDefaultRouter();
   });
 
-  it('Route (carga ansiosa) (verificar componentes renderizados)', () => {
+  it('Route (verificar configuracion rutas)', () => {
     eagerLoadingRoutes(routes, router);
   });
 

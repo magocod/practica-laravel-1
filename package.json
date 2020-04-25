@@ -9,7 +9,9 @@
     "test:store": "vue-cli-service test:unit --grep .store",
     "test:router": "vue-cli-service test:unit --grep .router",
     "test:temp": "vue-cli-service test:unit --grep .router",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "axios": "0.19.2",
@@ -21,6 +23,7 @@
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vue-snotify": "^3.2.1",
+    "vuepress": "^1.4.1",
     "vuetify": "^1.3.0",
     "vuex": "^3.0.1"
   },

@@ -4,7 +4,7 @@ lang: en-US
 home: true
 heroImage: /logo.jpg
 actionText: Get Started →
-actionLink: ./guide/basics.md
+actionLink: /guide/
 footer: MIT Licensed | Copyright © 2018-present UNEFA
 description: Digital repository
 meta:
